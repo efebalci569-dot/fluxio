@@ -1,16 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <!--
+    Fluxio for Windows (WPF, MVVM). The transfer engine and the local HTTP service live in
+    Fluxio.Transfer; this project is the user interface and the Windows integration
+    (firewall/network diagnostics, notifications, settings, logging).
+  -->
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>Fluxio</AssemblyName>
+    <RootNamespace>Fluxio.Desktop</RootNamespace>
+    <ApplicationIcon>Resources\fluxio.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- DPI awareness is declared in app.manifest (correct for WPF); the WinForms analyzer only applies to WinForms apps. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+    <Description>Fluxio - QR code file transfer between your computer and phone.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageReference Include="QRCoder" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fluxio.Transfer\Fluxio.Transfer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings\*.json" />
+    <Resource Include="Resources\fluxio.ico" />
+    <Resource Include="Resources\fluxio-256.png" />
   </ItemGroup>
 
 </Project>
