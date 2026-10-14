@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Fluxio.Transfer: the transfer engine. Sessions, pairing, authorization, the local
+    HTTP service (Kestrel) and the on-disk storage logic live here so they can be
+    tested without the WPF shell. The mobile web UI (src/Fluxio.Web) is embedded as
+    resources and served by the same origin as the API, so no CORS is needed.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fluxio.Transfer</RootNamespace>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <FluxioWebDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\Fluxio.Web\'))</FluxioWebDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Fluxio.Transfer.Tests" />
+    <InternalsVisibleTo Include="Fluxio.Security.Tests" />
+  </ItemGroup>
+
+  <!--
+    Builds the mobile web UI when its production bundle is missing (or when
+    ForceWebUiBuild=true) and embeds dist/** under the logical folder "wwwroot".
+    Set SkipWebUiBuild=true to build without Node.js; the server then answers
+    with an explicit "web UI not built" page instead of the app.
+  -->
+  <Target Name="FluxioBuildWebUi" BeforeTargets="PrepareForBuild"
+          Condition="'$(SkipWebUiBuild)' != 'true' And ('$(ForceWebUiBuild)' == 'true' Or !Exists('$(FluxioWebDir)dist\index.html'))">
+    <Message Importance="high" Text="Fluxio: building mobile web UI in $(FluxioWebDir)" />
+    <Exec Command="npm ci --no-audit --no-fund" WorkingDirectory="$(FluxioWebDir)" Condition="!Exists('$(FluxioWebDir)node_modules')" />
+    <Exec Command="npm run build" WorkingDirectory="$(FluxioWebDir)" />
+  </Target>
+
+  <Target Name="FluxioEmbedWebUi" AfterTargets="FluxioBuildWebUi" BeforeTargets="PrepareForBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="$(FluxioWebDir)dist\**\*" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

@@ -1,0 +1,15 @@
+<Project>
+  <!-- Shared settings for every .NET project in the Fluxio repository. -->
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <Product>Fluxio</Product>
+    <Company>Fluxio contributors</Company>
+    <Copyright>© 2026 Fluxio contributors</Copyright>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
+    <SatelliteResourceLanguages>en;tr</SatelliteResourceLanguages>
+  </PropertyGroup>
+</Project>
