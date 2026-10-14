@@ -30,6 +30,12 @@ public enum FirewallState
 
     /// <summary>No rule: Windows asks the first time Fluxio listens (allowing needs an administrator).</summary>
     NoRule,
+
+    /// <summary>
+    /// Fluxio has rules, but none for this network profile (e.g. allowed on Public, network now
+    /// Private). Windows does not ask again, so incoming connections are silently dropped.
+    /// </summary>
+    NotAllowedOnThisNetwork,
 }
 
 /// <summary>
@@ -115,6 +121,7 @@ public static class NetworkDiagnostics
 
             var exe = ExecutablePath;
             var allowed = false;
+            var hasAnyRule = false;
             foreach (dynamic rule in policy.Rules)
             {
                 string? application = rule.ApplicationName;
@@ -124,7 +131,13 @@ public static class NetworkDiagnostics
                 }
 
                 // Direction 1 = inbound, Action 0 = block / 1 = allow, Profiles = bit mask.
-                if (!(bool)rule.Enabled || (int)rule.Direction != 1 || ((int)rule.Profiles & profile) == 0)
+                if ((int)rule.Direction != 1)
+                {
+                    continue;
+                }
+
+                hasAnyRule = true;
+                if (!(bool)rule.Enabled || ((int)rule.Profiles & profile) == 0)
                 {
                     continue;
                 }
@@ -137,7 +150,11 @@ public static class NetworkDiagnostics
                 allowed = true;
             }
 
-            return allowed ? FirewallState.Allowed : FirewallState.NoRule;
+            // With any inbound rule present Windows does not prompt again, so "no rule for this
+            // profile" means the connection is dropped, not that the user will be asked.
+            return allowed ? FirewallState.Allowed
+                : hasAnyRule ? FirewallState.NotAllowedOnThisNetwork
+                : FirewallState.NoRule;
         }
         catch (Exception ex) when (ex is COMException or InvalidCastException or RuntimeBinderException or UnauthorizedAccessException or ArgumentException)
         {

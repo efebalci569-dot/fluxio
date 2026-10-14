@@ -260,6 +260,8 @@
   "Network.Firewall.Allowed": "Fluxio is allowed",
   "Network.Firewall.Blocked": "Fluxio is blocked",
   "Network.Firewall.NoRule": "No rule yet — Windows will ask the first time",
+  "Network.Firewall.NotAllowedOnThisNetwork": "Blocked on this network — Fluxio is only allowed on other network types",
+  "Network.Warning.NotAllowed": "Windows Firewall allows Fluxio only on other network types (for example Public), so the phone cannot connect on this network. Allow Fluxio in Settings › Network.",
   "Network.Warning.Blocked": "Windows Firewall blocks Fluxio, so the phone will not be able to connect.",
   "Network.Warning.Public": "Windows treats this network as Public and may block the phone. On your home network, switch it to Private.",
   "Network.Warning.NoRule": "Windows may ask whether Fluxio can use the network. Allow access on private networks.",

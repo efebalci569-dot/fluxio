@@ -260,6 +260,8 @@
   "Network.Firewall.Allowed": "Fluxio'ya izin verilmiş",
   "Network.Firewall.Blocked": "Fluxio engellenmiş",
   "Network.Firewall.NoRule": "Henüz kural yok — Windows ilk seferde soracak",
+  "Network.Firewall.NotAllowedOnThisNetwork": "Bu ağda engelli — Fluxio'ya yalnızca başka ağ türlerinde izin verilmiş",
+  "Network.Warning.NotAllowed": "Windows Güvenlik Duvarı Fluxio'ya yalnızca başka ağ türlerinde (örneğin Ortak) izin veriyor; bu ağda telefon bağlanamaz. Ayarlar › Ağ bölümünden Fluxio'ya izin ver.",
   "Network.Warning.Blocked": "Windows Güvenlik Duvarı Fluxio'yu engelliyor; telefon bağlanamayacak.",
   "Network.Warning.Public": "Windows bu ağı Ortak olarak görüyor ve telefonu engelleyebilir. Ev ağındaysan ağı Özel olarak değiştir.",
   "Network.Warning.NoRule": "Windows, Fluxio'nun ağı kullanmasına izin verilip verilmeyeceğini sorabilir. Özel ağlarda erişime izin ver.",

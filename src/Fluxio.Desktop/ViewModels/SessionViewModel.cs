@@ -317,6 +317,7 @@ public sealed partial class SessionViewModel : ObservableObject
         NetworkWarning = (category, firewall) switch
         {
             (_, FirewallState.Blocked) => Loc.Instance["Network.Warning.Blocked"],
+            (_, FirewallState.NotAllowedOnThisNetwork) => Loc.Instance["Network.Warning.NotAllowed"],
             (NetworkCategory.Public, FirewallState.Disabled) => null,
             (NetworkCategory.Public, _) => Loc.Instance["Network.Warning.Public"],
             (_, FirewallState.NoRule) => Loc.Instance["Network.Warning.NoRule"],

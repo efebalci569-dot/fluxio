@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release notes — Fluxio</title>
+  <meta name="description" content="What's new in each Fluxio version.">
+  <meta name="theme-color" content="#0b1020">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="./#features" data-i18n="nav.features">Features</a>
+        <a href="./#how" data-i18n="nav.how">How It Works</a>
+        <a href="security.html" data-i18n="nav.security">Security</a>
+        <a href="download.html" data-i18n="nav.download">Download</a>
+        <a href="#" data-github data-i18n="nav.github">GitHub</a>
+      </nav>
+      <div class="header__actions">
+        <button class="lang-btn" type="button" data-lang-toggle aria-label="Türkçe">TR</button>
+        <a class="btn btn--primary btn--small" href="download.html" data-i18n="nav.cta">Download</a>
+        <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu" data-menu>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="log.title">Release notes</h1>
+        <p data-i18n="log.lead">Published builds and their files are on <a href="#" data-github-path="/releases">GitHub Releases</a>.</p>
+      </div>
+    </section>
+
+    <section class="container prose">
+      <h2>0.1.0 <span class="subtle-note" data-i18n="log.unreleased">— first version (not published yet)</span></h2>
+      <ul>
+        <li data-i18n="log.i1">QR code pairing with one-time, expiring codes and device approval with a matching code.</li>
+        <li data-i18n="log.i2">Computer → phone and phone → computer transfers in one session, several files at once.</li>
+        <li data-i18n="log.i3">Chunked, resumable uploads from the phone; streaming downloads with resume; SHA-256 verification on both sides.</li>
+        <li data-i18n="log.i4">Approval of incoming files with name-conflict handling (keep both, replace, skip).</li>
+        <li data-i18n="log.i5">Transfers page with real speed and time remaining, local history, settings, Turkish and English, dark and light themes.</li>
+        <li data-i18n="log.i6">Network diagnostics for Windows network profile and Windows Firewall.</li>
+      </ul>
+      <h3 data-i18n="log.known">Known limitations</h3>
+      <ul>
+        <li data-i18n="log.k1">Both devices must be on the same local network; transfers over the internet are not available yet.</li>
+        <li data-i18n="log.k2">The connection inside the network uses HTTP (see Security).</li>
+        <li data-i18n="log.k3">Very large downloads to the phone use the browser's download manager and are not verified by the page.</li>
+        <li data-i18n="log.k4">Builds are not code-signed yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© 2026 Fluxio contributors</span>
+      <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
+    </div>
+  </footer>
+</body>
+</html>

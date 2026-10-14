@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Fluxio for Windows</title>
+  <meta name="description" content="Download Fluxio for Windows 10 and 11: installer and portable version, release notes, checksums and installation notes.">
+  <meta name="theme-color" content="#0b1020">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/release.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="./#features" data-i18n="nav.features">Features</a>
+        <a href="./#how" data-i18n="nav.how">How It Works</a>
+        <a href="security.html" data-i18n="nav.security">Security</a>
+        <a href="download.html" aria-current="page" data-i18n="nav.download">Download</a>
+        <a href="#" data-github data-i18n="nav.github">GitHub</a>
+      </nav>
+      <div class="header__actions">
+        <button class="lang-btn" type="button" data-lang-toggle aria-label="Türkçe">TR</button>
+        <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu" data-menu>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="dl.title">Download Fluxio for Windows</h1>
+        <p data-i18n="dl.lead">Free and open source. Windows 11 and Windows 10, 64-bit. Nothing else to install.</p>
+      </div>
+    </section>
+
+    <section class="container release">
+      <div class="release__main" aria-live="polite">
+        <!-- Filled from the GitHub Releases API: nothing is shown as downloadable until a real release exists. -->
+        <div class="status" id="release-loading">
+          <span class="spinner" aria-hidden="true"></span>
+          <p data-i18n="dl.loading">Checking the latest release on GitHub…</p>
+        </div>
+
+        <div id="release-none" hidden>
+          <h2 data-i18n="dl.noneTitle">No release has been published yet</h2>
+          <p class="section__lead" data-i18n="dl.noneBody">Fluxio is in development and the first build has not been published on GitHub Releases yet. You can build it from source today (see below), or check back soon.</p>
+          <p class="mt-24"><a class="btn btn--secondary" href="#" data-github data-i18n="dl.viewSource">View source on GitHub</a></p>
+        </div>
+
+        <div id="release-error" hidden>
+          <h2 data-i18n="dl.errorTitle">Release information is unavailable</h2>
+          <p class="section__lead" data-i18n="dl.errorBody">GitHub could not be reached (or its rate limit was hit). Open the releases page directly:</p>
+          <p class="mt-24"><a class="btn btn--secondary" href="#" data-github-path="/releases" data-i18n="dl.openReleases">Open GitHub Releases</a></p>
+        </div>
+
+        <div id="release-ok" hidden>
+          <h2><span data-i18n="dl.latest">Latest version</span> <span id="r-version"></span></h2>
+          <dl class="release__meta">
+            <div><dt data-i18n="dl.date">Release date</dt><dd id="r-date"></dd></div>
+            <div><dt data-i18n="dl.windows">Supported Windows</dt><dd data-i18n="dl.windowsValue">Windows 11 · Windows 10 (64-bit)</dd></div>
+          </dl>
+          <div class="release__assets" id="r-assets"></div>
+          <p class="mt-12 subtle-note" id="r-checksums-note" hidden data-i18n="dl.checksumNote">SHA-256 checksums are published with every release (SHA256SUMS.txt). Compare them before running the file.</p>
+          <h3 class="mt-24" data-i18n="dl.notes">Release notes</h3>
+          <div class="notes mt-12" id="r-notes"></div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 data-i18n="dl.installTitle">Installation</h3>
+        <ul>
+          <li data-i18n="dl.install1"><b>Installer</b> (FluxioSetup-x.y.z.exe): installs for your user or all users, adds a Start menu entry and, if you choose, a Windows Firewall rule for private networks.</li>
+          <li data-i18n="dl.install2"><b>Portable</b> (Fluxio-x.y.z-win-x64.zip): unzip and run Fluxio.exe. Windows asks once whether Fluxio may use the network — allow it on private networks.</li>
+          <li data-i18n="dl.install3">Fluxio is <b>not code-signed yet</b>. SmartScreen may show “Windows protected your PC”. Verify the SHA-256 checksum, then choose “More info” › “Run anyway”.</li>
+          <li data-i18n="dl.install4">Fluxio never needs administrator rights to run.</li>
+        </ul>
+        <h3 class="mt-24" data-i18n="dl.phoneTitle">On your phone</h3>
+        <p data-i18n="dl.phoneBody">Nothing to install. Scan the QR code shown by Fluxio with the camera app.</p>
+        <h3 class="mt-24" data-i18n="dl.buildTitle">Build from source</h3>
+        <p data-i18n="dl.buildBody">Requires the .NET 10 SDK and Node.js 20+. Clone the repository and run <code>scripts/build.ps1</code>; see <code>docs/development.md</code>.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© 2026 Fluxio contributors · <a href="security.html#privacy" data-i18n="footer.privacy">Privacy</a> · <a href="changelog.html" data-i18n="footer.changes">Release notes</a></span>
+      <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
+    </div>
+  </footer>
+</body>
+</html>

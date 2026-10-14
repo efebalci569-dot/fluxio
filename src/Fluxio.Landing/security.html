@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security and privacy — Fluxio</title>
+  <meta name="description" content="How Fluxio protects your files: one-time QR pairing, device approval, SHA-256 verification, local-network-only service and no telemetry.">
+  <meta name="theme-color" content="#0b1020">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="./#features" data-i18n="nav.features">Features</a>
+        <a href="./#how" data-i18n="nav.how">How It Works</a>
+        <a href="security.html" aria-current="page" data-i18n="nav.security">Security</a>
+        <a href="download.html" data-i18n="nav.download">Download</a>
+        <a href="#" data-github data-i18n="nav.github">GitHub</a>
+      </nav>
+      <div class="header__actions">
+        <button class="lang-btn" type="button" data-lang-toggle aria-label="Türkçe">TR</button>
+        <a class="btn btn--primary btn--small" href="download.html" data-i18n="nav.cta">Download</a>
+        <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu" data-menu>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="secp.title">Security and privacy</h1>
+        <p data-i18n="secp.lead">Fluxio assumes that not every device on your network is friendly. This page explains exactly what protects your files — and what does not.</p>
+      </div>
+    </section>
+
+    <section class="container prose">
+      <h2 data-i18n="secp.h1">Pairing</h2>
+      <ul>
+        <li data-i18n="secp.p1">Each session has a random 128-bit id and a 256-bit secret from the operating system's cryptographic random generator. Both are only in the QR code (in the part after <code>#</code>, which browsers never send to a server or include in referrers).</li>
+        <li data-i18n="secp.p2">A code is valid for a few minutes (2–15, configurable) and for <strong>one</strong> phone only. Creating a new code ends the previous session and invalidates its secret and tokens.</li>
+        <li data-i18n="secp.p3">After scanning, the phone receives its own random access token. You then confirm the phone on your computer; both screens show the same 4-digit code so you can be sure you approve the right device. Until you do, the phone cannot transfer anything.</li>
+        <li data-i18n="secp.p4">Pairing attempts are rate-limited and secrets are compared in constant time.</li>
+      </ul>
+
+      <h2 data-i18n="secp.h2">The local service</h2>
+      <ul>
+        <li data-i18n="secp.s1">Fluxio's web service runs <strong>only while a session is open</strong> and listens on <strong>one</strong> private LAN address — never on all interfaces. It stops when the session ends or Fluxio closes.</li>
+        <li data-i18n="secp.s2">Requests from public (non-local) addresses are refused. The <code>Host</code> header must match the session address, which blocks DNS-rebinding attacks.</li>
+        <li data-i18n="secp.s3">The access token travels in the <code>Authorization</code> header, not in cookies, so other websites cannot make requests on your behalf (no CSRF). Cross-site and cross-origin requests are rejected.</li>
+        <li data-i18n="secp.s4">Strict security headers: Content-Security-Policy without inline scripts, no framing, no referrer, no content sniffing. Request sizes and request rates are limited.</li>
+      </ul>
+
+      <h2 data-i18n="secp.h3">Files</h2>
+      <ul>
+        <li data-i18n="secp.f1">Incoming files need your approval (unless you turn that off). Nothing is written before you accept.</li>
+        <li data-i18n="secp.f2">File names from the phone are cleaned: folder parts, <code>..</code>, reserved Windows names, control characters and right-to-left tricks are removed, so a file can never be written outside the chosen folder.</li>
+        <li data-i18n="secp.f3">Data is streamed to a hidden temporary file and only moved to its real name after the SHA-256 checksum matches. Interrupted or cancelled transfers leave no partial files behind.</li>
+        <li data-i18n="secp.f4">Existing files are never overwritten unless you choose “Replace”. System and program folders cannot be used as the download folder.</li>
+        <li data-i18n="secp.f5">Fluxio never opens or runs received files. Received files are marked as downloaded (Mark of the Web), so Windows warns before running a received program.</li>
+        <li data-i18n="secp.f6">The phone only sees names and sizes of files you chose to send — never paths or other folders on your computer.</li>
+      </ul>
+
+      <h2 data-i18n="secp.h4">Encryption — the honest part</h2>
+      <p data-i18n="secp.e1">Inside your local network, the connection between phone and computer uses <strong>HTTP</strong>. A trusted HTTPS connection to a local IP address would require installing a certificate on the phone; self-signed certificates cause security warnings, and Fluxio will not ask you to click through them.</p>
+      <p data-i18n="secp.e2">What protects you: your Wi-Fi encryption (WPA2/WPA3) encrypts traffic over the air; sessions are short and bound to one approved phone; content is verified with SHA-256. What does not: someone who controls your network (for example on an untrusted public Wi-Fi) could observe or interfere with a transfer. Fluxio warns when Windows marks the network as Public. <strong>Use Fluxio on networks you trust.</strong></p>
+
+      <h2 data-i18n="secp.h5">Windows Firewall</h2>
+      <p data-i18n="secp.w1">The first time Fluxio listens, Windows asks whether to allow it. Allow it on <strong>private</strong> networks. If the network type changes later, Fluxio detects that the firewall blocks it and offers to add a rule that is limited to private networks, the local subnet and Fluxio's ports (this needs your administrator approval).</p>
+
+      <h2 id="privacy" data-i18n="secp.h6">Privacy</h2>
+      <ul>
+        <li data-i18n="secp.v1">No account, no cloud, no telemetry, no analytics.</li>
+        <li data-i18n="secp.v2">The local history stores file names, sizes, dates, results and the phone's browser description — never contents or folder paths. You can delete it at any time.</li>
+        <li data-i18n="secp.v3">Logs stay on your computer for 7 days and contain no tokens, secrets, file contents or paths.</li>
+        <li data-i18n="secp.v4">On the phone, an optional history is kept only in that browser's local storage.</li>
+        <li data-i18n="secp.v5">This website uses no cookies and no analytics. The download page asks GitHub's public API for the latest release.</li>
+      </ul>
+
+      <h2 data-i18n="secp.h7">Reporting a problem</h2>
+      <p data-i18n="secp.r1">Please report security issues privately through GitHub's “Report a vulnerability” on the repository instead of a public issue.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__bottom">
+      <span>© 2026 Fluxio contributors · <a href="download.html" data-i18n="nav.download">Download</a> · <a href="changelog.html" data-i18n="footer.changes">Release notes</a></span>
+      <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
+    </div>
+  </footer>
+</body>
+</html>

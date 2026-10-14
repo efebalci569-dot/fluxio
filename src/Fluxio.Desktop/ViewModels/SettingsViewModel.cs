@@ -201,11 +201,11 @@ public sealed partial class SettingsViewModel : ObservableObject
             FirewallTone = firewall switch
             {
                 FirewallState.Allowed or FirewallState.Disabled => "success",
-                FirewallState.Blocked => "danger",
+                FirewallState.Blocked or FirewallState.NotAllowedOnThisNetwork => "danger",
                 FirewallState.NoRule => "warning",
                 _ => "muted",
             };
-            CanFixFirewall = firewall is FirewallState.Blocked or FirewallState.NoRule;
+            CanFixFirewall = firewall is FirewallState.Blocked or FirewallState.NoRule or FirewallState.NotAllowedOnThisNetwork;
         }
         finally
         {
