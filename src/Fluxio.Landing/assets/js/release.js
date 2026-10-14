@@ -61,9 +61,34 @@
       });
 
     $('r-checksums-note').hidden = !assets.some(function (a) { return /sha256/i.test(a.name); });
-    // Release notes are shown as plain text (never as HTML).
-    $('r-notes').textContent = (release.body || '').trim() || '—';
+    renderNotes($('r-notes'), release.body || '');
     show('release-ok');
+  }
+
+  // Minimal Markdown → DOM (headings, lists, quotes, paragraphs). Text only: no HTML from the
+  // release body is ever interpreted. Tables are skipped (the file list is shown above).
+  function renderNotes(container, markdown) {
+    container.textContent = '';
+    container.classList.remove('notes');
+    var list = null;
+    var plain = function (text) { return text.replace(/\*\*|__|`/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').trim(); };
+    markdown.replace(/\r/g, '').split('\n').forEach(function (line) {
+      var trimmed = line.trim();
+      if (!trimmed || /^\|/.test(trimmed)) { list = null; return; }
+      var heading = /^#{1,6}\s+(.*)$/.exec(trimmed);
+      var item = /^[-*]\s+(.*)$/.exec(trimmed);
+      if (heading) {
+        list = null;
+        container.appendChild(el('h4', 'notes__h', plain(heading[1])));
+      } else if (item) {
+        if (!list) { list = el('ul', 'notes__list'); container.appendChild(list); }
+        list.appendChild(el('li', '', plain(item[1])));
+      } else {
+        list = null;
+        container.appendChild(el('p', /^>/.test(trimmed) ? 'notes__quote' : 'notes__p', plain(trimmed.replace(/^>\s*/, ''))));
+      }
+    });
+    if (!container.firstChild) container.textContent = '—';
   }
 
   if (!repo) { show('release-none'); return; }

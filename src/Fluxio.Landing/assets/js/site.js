@@ -17,6 +17,7 @@
     'hero.lead': 'Bilgisayarın ile telefonun arasında basit bir QR kodla dosya aktar.',
     'hero.download': 'Windows için indir',
     'hero.how': 'Nasıl çalıştığını gör',
+    'hero.more': 'Taşınabilir sürüm, sağlama toplamları ve kurulum notları',
     'hero.note1': 'Hesap yok',
     'hero.note2': 'Buluta yükleme yok',
     'hero.note3': 'Telefona uygulama gerekmez',
@@ -165,7 +166,7 @@
 
     'log.title': 'Sürüm notları',
     'log.lead': 'Yayımlanmış derlemeler ve dosyaları <a href="#" data-github-path="/releases">GitHub Releases</a> sayfasındadır.',
-    'log.unreleased': '— ilk sürüm (henüz yayımlanmadı)',
+    'log.unreleased': '— ilk sürüm, 14 Ekim 2026',
     'log.i1': 'Tek kullanımlık, süreli kodlarla QR eşleştirme ve eşleşen kodla cihaz onayı.',
     'log.i2': 'Tek oturumda bilgisayar → telefon ve telefon → bilgisayar aktarımı, aynı anda birden çok dosya.',
     'log.i3': 'Telefondan parça parça ve kaldığı yerden devam eden yükleme; devam edebilen akışlı indirme; iki tarafta SHA-256 doğrulaması.',

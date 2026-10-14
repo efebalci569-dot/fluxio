@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/latest.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -48,12 +49,14 @@
           <h1 data-i18n="hero.title">Your Files. Your Devices. <span class="grad">One Connection.</span></h1>
           <p class="hero__lead" data-i18n="hero.lead">Transfer files between your computer and phone with a simple QR code.</p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="download.html">
+            <a class="btn btn--primary" href="download.html" data-download-latest>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3M12 3.5V15M7 10l5 5 5-5"/></svg>
               <span data-i18n="hero.download">Download for Windows</span>
             </a>
             <a class="btn btn--secondary" href="#how" data-i18n="hero.how">See How It Works</a>
           </div>
+          <!-- Filled from GitHub Releases (assets/js/latest.js) only when a published installer exists. -->
+          <p class="hero__release" data-release-info hidden><span data-release-text></span> · <a href="download.html" data-i18n="hero.more">Portable version, checksums and install notes</a></p>
           <div class="hero__note">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="hero.note1">No account</span></span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="hero.note2">No cloud upload</span></span>
@@ -243,7 +246,7 @@
             <h2 data-i18n="cta.title">Move files. Effortlessly.</h2>
             <p data-i18n="cta.lead">Get Fluxio for Windows and connect your phone in seconds.</p>
           </div>
-          <a class="btn btn--primary" href="download.html" data-i18n="hero.download">Download for Windows</a>
+          <a class="btn btn--primary" href="download.html" data-download-latest data-i18n="hero.download">Download for Windows</a>
         </div>
       </div>
     </section>
