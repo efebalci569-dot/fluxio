@@ -1,0 +1,108 @@
+/*
+  Fluxio design tokens (shared palette with the desktop app and the website).
+  Dark is the brand default; light follows the system or the user's choice.
+*/
+:root {
+  color-scheme: dark;
+  --bg: #0b1020;
+  --bg-elevated: #10172b;
+  --surface: #141c33;
+  --surface-2: #1a2440;
+  --surface-hover: #202b4b;
+  --border: #26324f;
+  --border-strong: #36446b;
+  --text: #e8edf7;
+  --text-muted: #a3aec6;
+  --text-subtle: #7783a0;
+
+  --accent: #22d3ee;
+  --accent-2: #3b82f6;
+  --accent-contrast: #04121f;
+  --accent-soft: rgba(34, 211, 238, 0.12);
+  --receive: #a5b4fc;
+  --receive-soft: rgba(129, 140, 248, 0.14);
+
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.13);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.13);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.13);
+  --focus: #67e8f9;
+
+  --gradient: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  --radius-sm: 10px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.22);
+
+  --font: system-ui, -apple-system, 'Segoe UI Variable Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --surface-hover: #e6ecf5;
+  --border: #dbe2ee;
+  --border-strong: #c3cddf;
+  --text: #0e1526;
+  --text-muted: #4b5772;
+  --text-subtle: #66728c;
+  --accent: #0369a1;
+  --accent-2: #1d4ed8;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(3, 105, 161, 0.1);
+  --receive: #4338ca;
+  --receive-soft: rgba(67, 56, 202, 0.1);
+  --success: #15803d;
+  --success-soft: rgba(21, 128, 61, 0.1);
+  --danger: #b91c1c;
+  --danger-soft: rgba(185, 28, 28, 0.09);
+  --warning: #a16207;
+  --warning-soft: rgba(161, 98, 7, 0.11);
+  --focus: #0369a1;
+  --gradient: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --bg: #f4f6fb;
+    --bg-elevated: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #eef2f8;
+    --surface-hover: #e6ecf5;
+    --border: #dbe2ee;
+    --border-strong: #c3cddf;
+    --text: #0e1526;
+    --text-muted: #4b5772;
+    --text-subtle: #66728c;
+    --accent: #0369a1;
+    --accent-2: #1d4ed8;
+    --accent-contrast: #ffffff;
+    --accent-soft: rgba(3, 105, 161, 0.1);
+    --receive: #4338ca;
+    --receive-soft: rgba(67, 56, 202, 0.1);
+    --success: #15803d;
+    --success-soft: rgba(21, 128, 61, 0.1);
+    --danger: #b91c1c;
+    --danger-soft: rgba(185, 28, 28, 0.09);
+    --warning: #a16207;
+    --warning-soft: rgba(161, 98, 7, 0.11);
+    --focus: #0369a1;
+    --gradient: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
+    --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.07);
+  }
+}

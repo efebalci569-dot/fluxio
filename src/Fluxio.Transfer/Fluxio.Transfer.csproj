@@ -39,7 +39,9 @@
 
   <Target Name="FluxioEmbedWebUi" AfterTargets="FluxioBuildWebUi" BeforeTargets="PrepareForBuild">
     <ItemGroup>
-      <EmbeddedResource Include="$(FluxioWebDir)dist\**\*" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+      <_FluxioWebFile Include="$(FluxioWebDir)dist\**\*" />
+      <EmbeddedResource Include="@(_FluxioWebFile)"
+                        Link="wwwroot\%(_FluxioWebFile.RecursiveDir)%(_FluxioWebFile.Filename)%(_FluxioWebFile.Extension)" />
     </ItemGroup>
   </Target>
 
