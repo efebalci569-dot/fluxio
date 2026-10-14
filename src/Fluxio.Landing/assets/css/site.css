@@ -166,7 +166,7 @@ h1, h2, h3, p { margin: 0; }
 @keyframes fill { 0% { width: 12%; } 70% { width: 92%; } 100% { width: 92%; } }
 
 /* ---------- Sections ---------- */
-.section { padding: 96px 0; }
+.section { padding: 96px 0; scroll-margin-top: 68px; }
 .section--alt { background: linear-gradient(180deg, var(--bg-2), var(--bg)); border-top: 1px solid rgba(38, 50, 79, 0.5); border-bottom: 1px solid rgba(38, 50, 79, 0.5); }
 .section__head { max-width: 680px; margin-bottom: 48px; }
 .section__head.center { margin-inline: auto; text-align: center; }
@@ -289,12 +289,12 @@ td { color: var(--muted); }
   body { font-size: 16px; }
   .features { grid-template-columns: 1fr; }
   .hero { padding: 56px 0 48px; }
-  .preview { min-height: 400px; }
-  .win { width: 100%; }
+  .preview { min-height: 610px; }
+  .win { width: 100%; top: 0; }
   .win__body { grid-template-columns: 1fr; }
   .win__side { display: none; }
   .win__main { grid-template-columns: 1fr 112px; }
-  .phone { width: 170px; right: -6px; bottom: -40px; }
+  .phone { width: 180px; right: 0; top: 130px; bottom: auto; }
   .phone__screen { min-height: 300px; }
   .release__meta { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
