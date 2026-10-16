@@ -5,15 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found — Fluxio</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#f1efe9">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
-  <main class="container page-hero">
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="/" aria-label="Fluxio home"><img src="/assets/favicon.svg" alt="" width="30" height="30"><span>Fluxio</span></a>
+    </div>
+  </header>
+  <main class="container lost">
+    <p class="lost__code" aria-hidden="true">404</p>
     <h1>Page not found</h1>
-    <p>This page does not exist. Go back to the <a href="/">Fluxio home page</a>.</p>
+    <p>This page does not exist. Go back to the Fluxio home page.</p>
+    <p>
+      <a class="btn btn--ink" href="/">
+        <span>Fluxio home</span>
+        <span class="btn__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </p>
   </main>
 </body>
 </html>

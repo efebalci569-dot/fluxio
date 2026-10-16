@@ -13,14 +13,40 @@
     'nav.cta': 'İndir',
 
     'hero.eyebrow': 'Ücretsiz ve açık kaynak · Windows 10/11',
-    'hero.title': 'Dosyaların. Cihazların. <span class="grad">Tek bağlantı.</span>',
-    'hero.lead': 'Bilgisayarın ile telefonun arasında basit bir QR kodla dosya aktar.',
+    'hero.works': 'Android ve iPhone · telefona uygulama gerekmez',
+    'hero.title': '<span class="l1">Bilgisayarın.</span> <span class="l2">Telefonun.</span> <span class="l3">Tek tarama.<span class="qr-glyph" aria-hidden="true"></span></span>',
+    'hero.lead': 'Fluxio, dosyaları Windows bilgisayarın ile telefonun arasında kendi Wi-Fi ağın üzerinden taşır. QR kodu tara ve başla — kablo yok, hesap yok, bulut yok.',
     'hero.download': 'Windows için indir',
     'hero.how': 'Nasıl çalıştığını gör',
     'hero.more': 'Taşınabilir sürüm, sağlama toplamları ve kurulum notları',
     'hero.note1': 'Hesap yok',
     'hero.note2': 'Buluta yükleme yok',
     'hero.note3': 'Telefona uygulama gerekmez',
+
+    'tk.two': 'İki yönlü',
+    'tk.sha': 'SHA-256 ile doğrulanır',
+    'tk.size': 'Dosya başına 100 GB\'a kadar',
+    'tk.tele': 'Telemetri yok',
+    'tk.mit': 'Açık kaynak, MIT',
+
+    'mock.send': 'Dosya gönder',
+    'mock.recv': 'Dosya al',
+    'mock.connected': 'Telefon bağlı',
+    'mock.paired': 'iPhone ile eşleşti',
+    'mock.lan': 'Yerel ağ',
+    'mock.cloud': 'Bulut yok',
+    'mock.ok': 'Bağlı',
+    'mock.receiving': 'DESKTOP-PC\'den alınıyor',
+    'mock.speed': '21,4 MB/sn · 9 sn kaldı',
+    'mock.phone': 'Telefon',
+    'mock.verified': 'doğrulandı',
+    'mock.match': 'eşleşti',
+    'mock.expires': 'tek kullanımlık · 4:32',
+    'mock.drop': 'Dosya veya klasörleri buraya bırak',
+    'mock.email': 'E-posta',
+    'mock.password': 'Şifre',
+    'mock.signup': 'Hesap oluştur',
+    'mock.nope': 'Gerek yok',
 
     'features.kicker': 'Özellikler',
     'features.title': 'Dosya taşımak için gereken her şey. Fazlası değil.',
@@ -35,6 +61,10 @@
     'f4.d': 'Dosyaları veya klasörleri Fluxio\'ya bırak, listeyi gözden geçir, istemediklerini çıkar.',
     'f5.t': 'Büyük Dosya Desteği',
     'f5.d': 'Dosyalar parça parça aktarılır, belleğe tamamen yüklenmez; yarıda kalan yüklemeler kaldığı yerden devam eder.',
+    'f5.stat': 'dosya başına · aktarım başına 500 dosyaya kadar',
+    'f6.num': '21,4',
+    'f6.unit': 'MB/sn',
+    'f6.left': '12 sn kaldı',
     'f6.t': 'Aktarım İlerlemesi',
     'f6.d': 'Dosya bazında ve toplam ilerleme, gerçek ölçülen hız ve kalan süre — iki ekranda da.',
     'f7.t': 'Gizlilik Odaklı Tasarım',
@@ -81,6 +111,7 @@
     'req.netT': 'Ağ',
     'req.netD': 'İki cihaz aynı Wi-Fi veya yerel ağda. “İstemci yalıtımı” açık misafir ağları cihazlar arası trafiği engeller.',
 
+    'faq.kicker': 'SSS',
     'faq.title': 'Sorular',
     'q1': 'Telefonuma uygulama kurmam gerekiyor mu?',
     'a1': 'Hayır. QR kod, Fluxio sayfasını telefonunun tarayıcısında açar.',
@@ -94,7 +125,7 @@
     'a5': 'İlk sürümler henüz kod imzalı değil; SmartScreen uyarı gösterebilir. Yalnızca resmi GitHub sürümlerinden indir ve indirme sayfasındaki SHA-256 sağlama toplamını karşılaştır.',
     'q6': 'Fluxio ücretsiz mi?',
     'a6': 'Evet. Fluxio MIT lisansıyla açık kaynaktır.',
-    'cta.title': 'Dosyaları zahmetsizce taşı.',
+    'cta.title': 'Dosyaları taşı. Zahmetsizce.',
     'cta.lead': 'Windows için Fluxio\'yu al, telefonunu saniyeler içinde bağla.',
 
     'footer.tag': 'Dosyaların. Cihazların. Tek bağlantı.',
@@ -226,6 +257,9 @@
     });
     nav.addEventListener('click', function (event) {
       if (event.target.closest('a')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); }
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.focus(); }
     });
   }
 

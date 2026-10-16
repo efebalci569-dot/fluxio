@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fluxio — Your Files. Your Devices. One Connection.</title>
   <meta name="description" content="Fluxio transfers files between your Windows PC and your phone with a simple QR code. Local network, no cable, no account, no cloud upload. Free and open source.">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#f1efe9">
   <meta property="og:title" content="Fluxio — Your Files. Your Devices. One Connection.">
   <meta property="og:description" content="Transfer files between your computer and phone with a simple QR code.">
   <meta property="og:type" content="website">
@@ -13,6 +13,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/site.js" defer></script>
@@ -23,19 +24,19 @@
 
   <header class="header">
     <div class="container header__inner">
-      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
+      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="30" height="30"><span>Fluxio</span></a>
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="#features" data-i18n="nav.features">Features</a>
         <a href="#how" data-i18n="nav.how">How It Works</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
         <a href="security.html" data-i18n="nav.security">Security</a>
-        <a href="download.html" data-i18n="nav.download">Download</a>
+        <a class="nav__dl" href="download.html" data-i18n="nav.download">Download</a>
         <a href="#" data-github data-i18n="nav.github">GitHub</a>
       </nav>
       <div class="header__actions">
         <button class="lang-btn" type="button" data-lang-toggle aria-label="Türkçe">TR</button>
-        <a class="btn btn--primary btn--small" href="download.html" data-i18n="nav.cta">Download</a>
+        <a class="btn btn--ink btn--small" href="download.html" data-i18n="nav.cta">Download</a>
         <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu" data-menu>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>
     </div>
@@ -43,191 +44,319 @@
 
   <main id="main">
     <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <span class="eyebrow" data-i18n="hero.eyebrow">Free &amp; open source · Windows 10/11</span>
-          <h1 data-i18n="hero.title">Your Files. Your Devices. <span class="grad">One Connection.</span></h1>
-          <p class="hero__lead" data-i18n="hero.lead">Transfer files between your computer and phone with a simple QR code.</p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="download.html" data-download-latest>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3M12 3.5V15M7 10l5 5 5-5"/></svg>
-              <span data-i18n="hero.download">Download for Windows</span>
-            </a>
-            <a class="btn btn--secondary" href="#how" data-i18n="hero.how">See How It Works</a>
-          </div>
-          <!-- Filled from GitHub Releases (assets/js/latest.js) only when a published installer exists. -->
-          <p class="hero__release" data-release-info hidden><span data-release-text></span> · <a href="download.html" data-i18n="hero.more">Portable version, checksums and install notes</a></p>
-          <div class="hero__note">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="hero.note1">No account</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="hero.note2">No cloud upload</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="hero.note3">No app needed on the phone</span></span>
-          </div>
-        </div>
-
-        <!-- Product preview drawn with HTML/CSS; it mirrors the real Fluxio screens. -->
-        <div class="preview" aria-hidden="true">
-          <div class="win">
-            <div class="win__bar"><i></i><i></i><i></i><span class="ml-6">Fluxio</span></div>
-            <div class="win__body">
-              <div class="win__side">
-                <b><img src="assets/favicon.svg" alt="">Fluxio</b>
-                <span></span><span class="on"></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="win__main">
-                <div class="win__title">Send Files</div>
-                <div class="mini-card">
-                  <span class="pill pill--ok">Phone connected</span>
-                  <div class="mini-file"><em>JPG</em><b>holiday-2026.jpg</b>4.2 MB</div>
-                  <div class="mini-file"><em>MP4</em><b>birthday-video.mp4</b>286 MB</div>
-                  <div class="mini-file"><em>PDF</em><b>contract-final.pdf</b>1.1 MB</div>
-                </div>
-                <div>
-                  <div class="qr">
-                    <svg viewBox="0 0 29 29" shape-rendering="crispEdges"><path fill="#0b1020" d="M0 0h7v7H0zM2 2v3h3V2zM22 0h7v7h-7zm2 2v3h3V2zM0 22h7v7H0zm2 2v3h3v-3zM9 0h2v2H9zm4 0h1v3h-1zm3 1h3v1h-3zm-6 3h3v1h-3zm5 1h2v2h-2zm4 2h2v2h-2zM9 8h1v3H9zm3 1h3v1h-3zm5 0h1v4h-1zm3 1h1v2h-1zM0 9h2v1H0zm4 0h3v1H4zm18 0h3v1h-3zm4 2h3v1h-3zM1 12h3v1H1zm6 0h2v2H7zm4 1h3v1h-3zm6 2h3v1h-3zm5 0h2v3h-2zm4 1h3v1h-3zM0 15h1v3H0zm3 1h3v1H3zm6 1h2v1H9zm5 0h1v3h-1zm4 2h3v1h-3zm-9 2h3v1H9zm12 1h2v2h-2zm4 1h3v1h-3zM9 23h1v4H9zm3 1h3v1h-3zm5 0h1v3h-1zm3 2h3v1h-3zm5 0h1v3h-1zm-13 2h3v1h-3z"/></svg>
-                  </div>
-                  <div class="mini-label">Code expires in 4:32</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="phone">
-            <div class="phone__screen">
-              <div class="phone__top"><img src="assets/favicon.svg" alt=""><span class="pill pill--ok">Connected</span></div>
-              <h3>Your device is connected.</h3>
-              <p>Connected to DESKTOP-PC</p>
-              <div class="ph-card ph-card--send"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3M12 15V3.5M7 8.5l5-5 5 5"/></svg></i><div><b>Send to Computer</b><span>From this phone</span></div></div>
-              <div class="ph-card ph-card--recv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3M12 3.5V15M7 10l5 5 5-5"/></svg></i><div><b>Receive from Computer</b><span>3 files waiting</span></div></div>
-              <div class="ph-progress"><b><span>Receiving</span><span>68%</span></b><div class="bar"><span></span></div>194 MB of 291 MB · 21 MB/s</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="features">
       <div class="container">
-        <div class="section__head">
-          <p class="kicker" data-i18n="features.kicker">Features</p>
-          <h2 data-i18n="features.title">Everything you need to move files. Nothing you don't.</h2>
-          <p class="section__lead" data-i18n="features.lead">Fluxio runs on your Windows PC and opens in your phone's browser. Files go straight between the two devices on your local network.</p>
+        <div class="hero__meta">
+          <span><i class="sq" aria-hidden="true"></i><span data-i18n="hero.eyebrow">Free &amp; open source · Windows 10/11</span></span>
+          <span data-i18n="hero.works">Android &amp; iPhone · no phone app</span>
         </div>
-        <div class="features">
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></div>
-            <h3 data-i18n="f1.t">QR Code Pairing</h3>
-            <p data-i18n="f1.d">Scan the code with your phone's camera. Each code is single-use and expires after a few minutes.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V5M4 9l4-4 4 4M16 4v15M12 15l4 4 4-4"/></svg></div>
-            <h3 data-i18n="f2.t">Two-Way File Transfer</h3>
-            <p data-i18n="f2.d">Send from your PC to your phone, or from your phone to your PC — in the same connection.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0M12 20h.01"/></svg></div>
-            <h3 data-i18n="f3.t">Local Network Transfer</h3>
-            <p data-i18n="f3.d">Files travel directly over your Wi-Fi or LAN. They are never uploaded to a cloud server.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-            <h3 data-i18n="f4.t">Drag and Drop</h3>
-            <p data-i18n="f4.d">Drop files or whole folders onto Fluxio, review the list and remove what you don't need.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 15h6M9 11h3"/></svg></div>
-            <h3 data-i18n="f5.t">Large File Support</h3>
-            <p data-i18n="f5.d">Files are streamed in chunks, never loaded fully into memory, and interrupted uploads resume where they stopped.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0M12 7v5l3 2"/></svg></div>
-            <h3 data-i18n="f6.t">Transfer Progress</h3>
-            <p data-i18n="f6.d">Per-file and overall progress, real measured speed and time remaining — on both screens.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6zM9 12l2 2 4-4"/></svg></div>
-            <h3 data-i18n="f7.t">Privacy-Focused Design</h3>
-            <p data-i18n="f7.d">You approve every phone and every incoming batch. Every file is verified with SHA-256. No telemetry.</p>
-          </article>
-          <article class="feature">
-            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1z"/></svg></div>
-            <h3 data-i18n="f8.t">No Mandatory Account</h3>
-            <p data-i18n="f8.d">There is no sign-up and no account at all. Install, open, scan — that's it.</p>
-          </article>
+
+        <h1 class="hero__title" data-i18n="hero.title"><span class="l1">Your PC.</span> <span class="l2">Your phone.</span> <span class="l3">One scan.<span class="qr-glyph" aria-hidden="true"></span></span></h1>
+
+        <div class="hero__row">
+          <p class="hero__lead" data-i18n="hero.lead">Fluxio moves files between your Windows PC and your phone over your own Wi-Fi. Scan a QR code and go — no cable, no account, no cloud.</p>
+          <div class="hero__actions">
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="download.html" data-download-latest>
+                <span data-i18n="hero.download">Download for Windows</span>
+                <span class="btn__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
+              </a>
+              <a class="btn btn--secondary" href="#how" data-i18n="hero.how">See How It Works</a>
+            </div>
+            <!-- Filled from GitHub Releases (assets/js/latest.js) only when a published installer exists. -->
+            <p class="hero__release" data-release-info hidden><span data-release-text></span><a href="download.html" data-i18n="hero.more">Portable version, checksums and install notes</a></p>
+          </div>
+        </div>
+
+        <!-- Animated product scene drawn with HTML/CSS: the computer sends, the phone receives. -->
+        <div class="stage" aria-hidden="true">
+          <div class="stage__grid">
+            <div class="desk">
+              <div class="desk__bar"><i></i><i></i><i></i><span>Fluxio</span></div>
+              <div class="desk__body">
+                <div class="desk__rail"><img src="assets/favicon.svg" alt=""><span></span><span class="on"></span><span></span><span></span><span></span></div>
+                <div class="desk__main">
+                  <div class="desk__head"><b data-i18n="mock.send">Send files</b><span class="chip chip--ok" data-i18n="mock.connected">Phone connected</span></div>
+                  <div class="desk__cols">
+                    <ul class="files">
+                      <li><em class="t1">JPG</em><b>holiday-2026.jpg</b><small>4.2 MB</small></li>
+                      <li><em class="t2">MP4</em><b>birthday-video.mp4</b><small>286 MB</small></li>
+                      <li><em class="t3">PDF</em><b>contract-final.pdf</b><small>1.1 MB</small></li>
+                    </ul>
+                    <div class="pair">
+                      <div class="pair__qr"><span class="pair__ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div>
+                      <div class="pair__code"><span>4</span><span>2</span><span>7</span><span>1</span></div>
+                      <small data-i18n="mock.paired">Paired with iPhone</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wire">
+              <span class="wire__tag"><span data-i18n="mock.lan">Local network</span> · 192.168.1.24</span>
+              <div class="wire__line"><i class="pkt">JPG</i><i class="pkt">MP4</i><i class="pkt">PDF</i></div>
+              <span class="wire__tag wire__tag--off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 18.5h9.5a4 4 0 0 0 .7-7.94A6 6 0 0 0 6.3 9.6a4.5 4.5 0 0 0 1.2 8.9zM3.5 3.5l17 17"/></svg><span data-i18n="mock.cloud">No cloud</span></span>
+            </div>
+
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__top"><img src="assets/favicon.svg" alt=""><span class="chip chip--ok" data-i18n="mock.ok">Connected</span></div>
+                <p class="phone__title" data-i18n="mock.receiving">Receiving from DESKTOP-PC</p>
+                <div class="ring"></div>
+                <p class="phone__speed" data-i18n="mock.speed">21.4 MB/s · 9 s left</p>
+                <ul class="ph-files">
+                  <li><i></i><b>holiday-2026.jpg</b><small>4.2 MB</small></li>
+                  <li><i></i><b>birthday-video.mp4</b><small>286 MB</small></li>
+                  <li><i></i><b>contract-final.pdf</b><small>1.1 MB</small></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="ticker">
+      <div class="ticker__track">
+        <span data-i18n="hero.note1">No account</span><i></i>
+        <span data-i18n="hero.note2">No cloud upload</span><i></i>
+        <span data-i18n="hero.note3">No app needed on the phone</span><i></i>
+        <span data-i18n="tk.two">Both directions</span><i></i>
+        <span data-i18n="tk.sha">SHA-256 verified</span><i></i>
+        <span data-i18n="tk.size">Up to 100 GB per file</span><i></i>
+        <span data-i18n="tk.tele">No telemetry</span><i></i>
+        <span data-i18n="tk.mit">Open source, MIT</span><i></i>
+      </div>
+      <div class="ticker__track" aria-hidden="true">
+        <span data-i18n="hero.note1">No account</span><i></i>
+        <span data-i18n="hero.note2">No cloud upload</span><i></i>
+        <span data-i18n="hero.note3">No app needed on the phone</span><i></i>
+        <span data-i18n="tk.two">Both directions</span><i></i>
+        <span data-i18n="tk.sha">SHA-256 verified</span><i></i>
+        <span data-i18n="tk.size">Up to 100 GB per file</span><i></i>
+        <span data-i18n="tk.tele">No telemetry</span><i></i>
+        <span data-i18n="tk.mit">Open source, MIT</span><i></i>
+      </div>
+    </div>
 
     <section class="section" id="how">
       <div class="container">
-        <div class="section__head center">
-          <p class="kicker" data-i18n="how.kicker">How it works</p>
-          <h2 data-i18n="how.title">Three steps. No cable.</h2>
-          <p class="section__lead" data-i18n="how.lead">Your computer and phone just need to be on the same Wi-Fi or local network.</p>
+        <div class="sec-head reveal">
+          <p class="sec-label"><b>01</b><span data-i18n="how.kicker">How it works</span></p>
+          <div>
+            <h2 data-i18n="how.title">Three steps. No cable.</h2>
+            <p class="sec-lead" data-i18n="how.lead">Your computer and phone just need to be on the same Wi-Fi or local network.</p>
+          </div>
         </div>
-        <div class="steps">
-          <article class="step">
-            <div class="step__num">1</div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__n">01</span>
+            <div class="step__art art-open" aria-hidden="true">
+              <div class="mini-win">
+                <span class="mini-btn mini-btn--send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6.5 11.5 12 6l5.5 5.5"/></svg><span data-i18n="mock.send">Send files</span></span>
+                <span class="mini-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5"/></svg><span data-i18n="mock.recv">Receive files</span></span>
+              </div>
+              <svg class="cursor" viewBox="0 0 24 24"><path d="M5 3.5l13.5 7.6-5.9 1.6-3 5.6z" fill="#0f1013" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
             <h3 data-i18n="s1.t">Open Fluxio on your computer.</h3>
             <p data-i18n="s1.d">Choose <b>Send Files</b> or <b>Receive Files</b>. Fluxio starts a short-lived session and shows a QR code.</p>
-          </article>
-          <article class="step">
-            <div class="step__num">2</div>
+          </li>
+          <li class="step reveal">
+            <span class="step__n">02</span>
+            <div class="step__art art-scan" aria-hidden="true">
+              <div class="mini-phone"><div class="mini-qr"><span class="scanline"></span></div></div>
+              <div class="codes">
+                <span class="code"><small>PC</small><b>4271</b></span>
+                <span class="code code--ok"><small data-i18n="mock.phone">Phone</small><b>4271</b></span>
+              </div>
+            </div>
             <h3 data-i18n="s2.t">Scan the QR code with your phone.</h3>
             <p data-i18n="s2.d">Your camera opens the Fluxio page in the browser. Confirm the 4-digit code on your computer to allow the phone.</p>
-          </article>
-          <article class="step">
-            <div class="step__num">3</div>
+          </li>
+          <li class="step reveal">
+            <span class="step__n">03</span>
+            <div class="step__art art-send" aria-hidden="true">
+              <div class="mini-list">
+                <span class="mrow"><em>JPG</em><i></i></span>
+                <span class="mrow"><em>MP4</em><i></i></span>
+                <span class="mrow"><em>PDF</em><i></i></span>
+                <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>SHA-256 <span data-i18n="mock.verified">verified</span></span>
+              </div>
+            </div>
             <h3 data-i18n="s3.t">Select files and transfer.</h3>
             <p data-i18n="s3.d">Pick files on either device. The other side accepts, the files stream across, and both sides verify them.</p>
-          </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--rule" id="features">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-label"><b>02</b><span data-i18n="features.kicker">Features</span></p>
+          <div>
+            <h2 data-i18n="features.title">Everything you need to move files. Nothing you don't.</h2>
+            <p class="sec-lead" data-i18n="features.lead">Fluxio runs on your Windows PC and opens in your phone's browser. Files go straight between the two devices on your local network.</p>
+          </div>
         </div>
-        <div class="flow" aria-label="Data path">
-          <span data-i18n="flow.pc">Your PC</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-          <span data-i18n="flow.lan">Your local network</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-          <span data-i18n="flow.phone">Your phone</span>
+
+        <div class="bento">
+          <article class="tile tile--ink tile--qr reveal">
+            <div class="tile__art" aria-hidden="true">
+              <div class="scan">
+                <div class="scan__qr"></div>
+                <span class="scan__line"></span>
+                <svg class="scan__frame" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M2 22V10a8 8 0 0 1 8-8h12M78 2h12a8 8 0 0 1 8 8v12M98 78v12a8 8 0 0 1-8 8H78M22 98H10a8 8 0 0 1-8-8V78"/></svg>
+              </div>
+              <span class="timer" data-i18n="mock.expires">single use · 4:32</span>
+            </div>
+            <h3 data-i18n="f1.t">QR Code Pairing</h3>
+            <p data-i18n="f1.d">Scan the code with your phone's camera. Each code is single-use and expires after a few minutes.</p>
+          </article>
+
+          <article class="tile tile--blue tile--two reveal">
+            <div class="tile__art two" aria-hidden="true">
+              <span class="two__end">PC</span>
+              <div class="two__lanes"><span class="lane lane--r"><i></i></span><span class="lane lane--l"><i></i></span></div>
+              <span class="two__end" data-i18n="mock.phone">Phone</span>
+            </div>
+            <h3 data-i18n="f2.t">Two-Way File Transfer</h3>
+            <p data-i18n="f2.d">Send from your PC to your phone, or from your phone to your PC — in the same connection.</p>
+          </article>
+
+          <article class="tile tile--lime tile--big reveal">
+            <div class="tile__art stat">
+              <p class="stat__num">100<span>GB</span></p>
+              <p class="stat__note" data-i18n="f5.stat">per file · up to 500 files per transfer</p>
+            </div>
+            <h3 data-i18n="f5.t">Large File Support</h3>
+            <p data-i18n="f5.d">Files are streamed in chunks, never loaded fully into memory, and interrupted uploads resume where they stopped.</p>
+          </article>
+
+          <article class="tile tile--speed reveal">
+            <div class="tile__art speed" aria-hidden="true">
+              <div class="speed__read"><b data-i18n="f6.num">21.4</b><span data-i18n="f6.unit">MB/s</span></div>
+              <svg class="spark" viewBox="0 0 240 64"><path class="spark__fill" d="M0 52 16 44 32 47 48 34 64 38 80 26 96 30 112 21 128 25 144 16 160 22 176 13 192 17 208 9 224 12 240 7V64H0Z"/><path class="spark__line" pathLength="1" d="M0 52 16 44 32 47 48 34 64 38 80 26 96 30 112 21 128 25 144 16 160 22 176 13 192 17 208 9 224 12 240 7"/></svg>
+              <div class="speed__meta"><span data-i18n="f6.left">12 s left</span><span>68%</span></div>
+            </div>
+            <h3 data-i18n="f6.t">Transfer Progress</h3>
+            <p data-i18n="f6.d">Per-file and overall progress, real measured speed and time remaining — on both screens.</p>
+          </article>
+
+          <article class="tile tile--drop reveal">
+            <div class="tile__art drop" aria-hidden="true">
+              <div class="drop__zone">
+                <span class="drop__file f-a">MP4</span>
+                <span class="drop__file f-b">JPG</span>
+                <span class="drop__file f-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+                <small data-i18n="mock.drop">Drop files or folders here</small>
+              </div>
+            </div>
+            <h3 data-i18n="f4.t">Drag and Drop</h3>
+            <p data-i18n="f4.d">Drop files or whole folders onto Fluxio, review the list and remove what you don't need.</p>
+          </article>
+
+          <article class="tile tile--lan reveal">
+            <div class="tile__art lan" aria-hidden="true">
+              <svg class="lan__wifi" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path class="w3" d="M3 14a30 30 0 0 1 42 0"/><path class="w2" d="M10 21.5a20 20 0 0 1 28 0"/><path class="w1" d="M17 29a10 10 0 0 1 14 0"/><circle cx="24" cy="35.5" r="2.6" fill="currentColor" stroke="none"/></svg>
+              <span class="lan__ip">192.168.1.24</span>
+            </div>
+            <h3 data-i18n="f3.t">Local Network Transfer</h3>
+            <p data-i18n="f3.d">Files travel directly over your Wi-Fi or LAN. They are never uploaded to a cloud server.</p>
+          </article>
+
+          <article class="tile tile--acct reveal">
+            <div class="tile__art acct" aria-hidden="true">
+              <div class="form">
+                <span class="field" data-i18n="mock.email">Email</span>
+                <span class="field" data-i18n="mock.password">Password</span>
+                <span class="field field--btn" data-i18n="mock.signup">Create account</span>
+              </div>
+              <span class="stamp" data-i18n="mock.nope">Not needed</span>
+            </div>
+            <h3 data-i18n="f8.t">No Mandatory Account</h3>
+            <p data-i18n="f8.d">There is no sign-up and no account at all. Install, open, scan — that's it.</p>
+          </article>
+
+          <article class="tile tile--ink tile--hash reveal">
+            <div class="hash__text">
+              <h3 data-i18n="f7.t">Privacy-Focused Design</h3>
+              <p data-i18n="f7.d">You approve every phone and every incoming batch. Every file is verified with SHA-256. No telemetry.</p>
+            </div>
+            <div class="tile__art hashes" aria-hidden="true">
+              <div class="hrow"><small>PC</small><code>9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08</code></div>
+              <div class="hrow"><small data-i18n="mock.phone">Phone</small><code>9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08</code></div>
+              <span class="match"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>SHA-256 <span data-i18n="mock.match">match</span></span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="security">
-      <div class="container split">
-        <div>
-          <p class="kicker" data-i18n="sec.kicker">Security</p>
-          <h2 data-i18n="sec.title">Designed so only your phone gets in.</h2>
-          <p class="section__lead" data-i18n="sec.lead">Fluxio does not trust every device on your network. Access is short-lived, explicit and limited to what you choose to share.</p>
-          <p class="mt-24"><a class="btn btn--secondary" href="security.html" data-i18n="sec.more">Read the security model</a></p>
+    <section class="section section--ink" id="security">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-label"><b>03</b><span data-i18n="sec.kicker">Security</span></p>
+          <div>
+            <h2 data-i18n="sec.title">Designed so only your phone gets in.</h2>
+            <p class="sec-lead" data-i18n="sec.lead">Fluxio does not trust every device on your network. Access is short-lived, explicit and limited to what you choose to share.</p>
+            <p class="mt-32">
+              <a class="btn btn--lime" href="security.html">
+                <span data-i18n="sec.more">Read the security model</span>
+                <span class="btn__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a>
+            </p>
+          </div>
         </div>
-        <div>
-          <ul class="checklist">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b data-i18n="c1.t">One-time, expiring QR codes</b><span data-i18n="c1.d">256-bit random secret, usable by a single phone, valid for minutes. A new code invalidates the old one.</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b data-i18n="c2.t">You approve the phone</b><span data-i18n="c2.d">A matching code appears on both screens before anything can be transferred.</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b data-i18n="c3.t">Approve incoming files</b><span data-i18n="c3.d">Nothing is written until you accept. Existing files are never overwritten without asking.</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b data-i18n="c4.t">SHA-256 verification</b><span data-i18n="c4.d">A transfer only counts as complete after both sides agree on the checksum.</span></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b data-i18n="c5.t">Local network only, only while needed</b><span data-i18n="c5.d">The service listens on one LAN address and only during a session. Files are never opened or run.</span></div></li>
-          </ul>
-          <div class="notice mt-22"><b data-i18n="sec.honestT">Good to know</b><span data-i18n="sec.honestD">Inside your network Fluxio uses plain HTTP (your Wi-Fi encryption protects it over the air), because phone browsers cannot trust a local certificate without warnings. Use Fluxio on networks you trust.</span></div>
+
+        <ol class="spec">
+          <li class="reveal"><span class="spec__n">01</span><b class="spec__t" data-i18n="c1.t">One-time, expiring QR codes</b><p data-i18n="c1.d">256-bit random secret, usable by a single phone, valid for minutes. A new code invalidates the old one.</p></li>
+          <li class="reveal"><span class="spec__n">02</span><b class="spec__t" data-i18n="c2.t">You approve the phone</b><p data-i18n="c2.d">A matching code appears on both screens before anything can be transferred.</p></li>
+          <li class="reveal"><span class="spec__n">03</span><b class="spec__t" data-i18n="c3.t">Approve incoming files</b><p data-i18n="c3.d">Nothing is written until you accept. Existing files are never overwritten without asking.</p></li>
+          <li class="reveal"><span class="spec__n">04</span><b class="spec__t" data-i18n="c4.t">SHA-256 verification</b><p data-i18n="c4.d">A transfer only counts as complete after both sides agree on the checksum.</p></li>
+          <li class="reveal"><span class="spec__n">05</span><b class="spec__t" data-i18n="c5.t">Local network only, only while needed</b><p data-i18n="c5.d">The service listens on one LAN address and only during a session. Files are never opened or run.</p></li>
+        </ol>
+
+        <div class="footnote reveal">
+          <p class="sec-label"><b>*</b><span data-i18n="sec.honestT">Good to know</span></p>
+          <p data-i18n="sec.honestD">Inside your network Fluxio uses plain HTTP (your Wi-Fi encryption protects it over the air), because phone browsers cannot trust a local certificate without warnings. Use Fluxio on networks you trust.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="requirements">
       <div class="container">
-        <div class="section__head">
-          <p class="kicker" data-i18n="req.kicker">Requirements</p>
-          <h2 data-i18n="req.title">What you need</h2>
+        <div class="sec-head reveal">
+          <p class="sec-label"><b>04</b><span data-i18n="req.kicker">Requirements</span></p>
+          <div><h2 data-i18n="req.title">What you need</h2></div>
         </div>
-        <div class="specs">
-          <div class="card"><h3 data-i18n="req.pcT">Computer</h3><p data-i18n="req.pcD">Windows 11 or Windows 10 (64-bit). No separate .NET installation needed.</p></div>
-          <div class="card"><h3 data-i18n="req.phoneT">Phone</h3><p data-i18n="req.phoneD">Any Android or iPhone with a camera that reads QR codes and an up-to-date browser (Chrome, Safari, Samsung Internet, Firefox).</p></div>
-          <div class="card"><h3 data-i18n="req.netT">Network</h3><p data-i18n="req.netD">Both devices on the same Wi-Fi or local network. Guest networks with “client isolation” block device-to-device traffic.</p></div>
+        <div class="reqs">
+          <div class="req reveal">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="38" height="25" rx="3"/><path d="M17 41h14M24 33v8"/></svg>
+            <h3 data-i18n="req.pcT">Computer</h3>
+            <p data-i18n="req.pcD">Windows 11 or Windows 10 (64-bit). No separate .NET installation needed.</p>
+          </div>
+          <div class="req reveal">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="4" width="22" height="40" rx="5"/><path d="M21 38h6"/></svg>
+            <h3 data-i18n="req.phoneT">Phone</h3>
+            <p data-i18n="req.phoneD">Any Android or iPhone with a camera that reads QR codes and an up-to-date browser (Chrome, Safari, Samsung Internet, Firefox).</p>
+          </div>
+          <div class="req reveal">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 18a28 28 0 0 1 40 0M10.5 25a19 19 0 0 1 27 0M17 32a10 10 0 0 1 14 0"/><circle cx="24" cy="39" r="2" fill="currentColor" stroke="none"/></svg>
+            <h3 data-i18n="req.netT">Network</h3>
+            <p data-i18n="req.netD">Both devices on the same Wi-Fi or local network. Guest networks with “client isolation” block device-to-device traffic.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="faq">
-      <div class="container">
-        <div class="section__head center"><p class="kicker">FAQ</p><h2 data-i18n="faq.title">Questions</h2></div>
+    <section class="section section--rule" id="faq">
+      <div class="container faq-wrap">
+        <div class="faq-head reveal">
+          <p class="sec-label"><b>05</b><span data-i18n="faq.kicker">FAQ</span></p>
+          <h2 data-i18n="faq.title">Questions</h2>
+        </div>
         <div class="faq">
           <details><summary data-i18n="q1">Do I need to install an app on my phone?</summary><p data-i18n="a1">No. The QR code opens the Fluxio page in your phone's browser.</p></details>
           <details><summary data-i18n="q2">Does it work over the internet?</summary><p data-i18n="a2">Not in this version. Both devices must be on the same local network. Transfers between different networks are planned for a later version and will be clearly explained before they are offered.</p></details>
@@ -239,16 +368,18 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="cta">
       <div class="container">
-        <div class="cta-band">
-          <div>
-            <h2 data-i18n="cta.title">Move files. Effortlessly.</h2>
-            <p data-i18n="cta.lead">Get Fluxio for Windows and connect your phone in seconds.</p>
-          </div>
-          <a class="btn btn--primary" href="download.html" data-download-latest data-i18n="hero.download">Download for Windows</a>
+        <h2 class="reveal" data-i18n="cta.title">Move files. Effortlessly.</h2>
+        <div class="cta__row">
+          <p data-i18n="cta.lead">Get Fluxio for Windows and connect your phone in seconds.</p>
+          <a class="btn btn--lime" href="download.html" data-download-latest>
+            <span data-i18n="hero.download">Download for Windows</span>
+            <span class="btn__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
+          </a>
         </div>
       </div>
+      <svg class="cta__mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 19h18l-5-5M34 29H16l5 5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </section>
   </main>
 
@@ -256,8 +387,8 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
-          <p class="mt-12" data-i18n="footer.tag">Your Files. Your Devices. One Connection.</p>
+          <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="30" height="30"><span>Fluxio</span></a>
+          <p class="footer__tag" data-i18n="footer.tag">Your Files. Your Devices. One Connection.</p>
         </div>
         <div><h4 data-i18n="footer.product">Product</h4><ul><li><a href="#features" data-i18n="nav.features">Features</a></li><li><a href="download.html" data-i18n="nav.download">Download</a></li><li><a href="changelog.html" data-i18n="footer.changes">Release notes</a></li></ul></div>
         <div><h4 data-i18n="footer.trust">Trust</h4><ul><li><a href="security.html" data-i18n="nav.security">Security</a></li><li><a href="security.html#privacy" data-i18n="footer.privacy">Privacy</a></li></ul></div>
@@ -267,6 +398,7 @@
         <span>© 2026 Fluxio contributors</span>
         <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
       </div>
+      <p class="footer__word" aria-hidden="true">Fluxio</p>
     </div>
   </footer>
 </body>

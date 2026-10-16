@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download Fluxio for Windows</title>
   <meta name="description" content="Download Fluxio for Windows 10 and 11: installer and portable version, release notes, checksums and installation notes.">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#f1efe9">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/site.js" defer></script>
@@ -17,18 +18,18 @@
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
   <header class="header">
     <div class="container header__inner">
-      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="32" height="32">Fluxio</a>
+      <a class="brand" href="./" aria-label="Fluxio home"><img src="assets/favicon.svg" alt="" width="30" height="30"><span>Fluxio</span></a>
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="./#features" data-i18n="nav.features">Features</a>
         <a href="./#how" data-i18n="nav.how">How It Works</a>
+        <a href="./#features" data-i18n="nav.features">Features</a>
         <a href="security.html" data-i18n="nav.security">Security</a>
-        <a href="download.html" aria-current="page" data-i18n="nav.download">Download</a>
+        <a class="nav__dl" href="download.html" aria-current="page" data-i18n="nav.download">Download</a>
         <a href="#" data-github data-i18n="nav.github">GitHub</a>
       </nav>
       <div class="header__actions">
         <button class="lang-btn" type="button" data-lang-toggle aria-label="Türkçe">TR</button>
         <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu" data-menu>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>
     </div>
@@ -37,6 +38,7 @@
   <main id="main">
     <section class="page-hero">
       <div class="container">
+        <p class="crumb"><a href="./" lang="en">Fluxio</a><span aria-hidden="true">/</span><span data-i18n="nav.download">Download</span></p>
         <h1 data-i18n="dl.title">Download Fluxio for Windows</h1>
         <p data-i18n="dl.lead">Free and open source. Windows 11 and Windows 10, 64-bit. Nothing else to install.</p>
       </div>
@@ -92,9 +94,21 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__bottom">
-      <span>© 2026 Fluxio contributors · <a href="security.html#privacy" data-i18n="footer.privacy">Privacy</a> · <a href="changelog.html" data-i18n="footer.changes">Release notes</a></span>
-      <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="30" height="30"><span>Fluxio</span></a>
+          <p class="footer__tag" data-i18n="footer.tag">Your Files. Your Devices. One Connection.</p>
+        </div>
+        <div><h4 data-i18n="footer.product">Product</h4><ul><li><a href="./#features" data-i18n="nav.features">Features</a></li><li><a href="download.html" data-i18n="nav.download">Download</a></li><li><a href="changelog.html" data-i18n="footer.changes">Release notes</a></li></ul></div>
+        <div><h4 data-i18n="footer.trust">Trust</h4><ul><li><a href="security.html" data-i18n="nav.security">Security</a></li><li><a href="security.html#privacy" data-i18n="footer.privacy">Privacy</a></li></ul></div>
+        <div><h4 data-i18n="footer.source">Open source</h4><ul><li><a href="#" data-github>GitHub</a></li><li><a href="#" data-github-path="/blob/main/LICENSE" data-i18n="footer.license">MIT License</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Fluxio contributors</span>
+        <span data-i18n="footer.noTrack">This website uses no cookies and no analytics.</span>
+      </div>
+      <p class="footer__word" aria-hidden="true">Fluxio</p>
     </div>
   </footer>
 </body>
